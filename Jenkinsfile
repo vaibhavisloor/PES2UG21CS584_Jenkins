@@ -28,11 +28,8 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                // Copy output_file to a remote server using SCP
-                sh 'scp output_file user@remote-server:/path/to/deploy'
-                
-                // Restart the application on the remote server using SSH
-                sh 'ssh user@remote-server "sudo systemctl restart myapp"'
+                // Only print an echo message for deployment
+                echo 'Deployment step: Just printing this message'
             }
             post {
                 failure {
