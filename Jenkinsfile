@@ -32,7 +32,14 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                // Add deployment steps if necessary
+                // Add deployment steps
+                script {
+                    // Example: Copy output_file to a remote server using SCP
+                    sh 'scp output_file user@remote-server:/path/to/deploy'
+                    
+                    // Example: Restart the application on the remote server using SSH
+                    sh 'ssh user@remote-server "sudo systemctl restart myapp"'
+                }
             }
         }
     }
